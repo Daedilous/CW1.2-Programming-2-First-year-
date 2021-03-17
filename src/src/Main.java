@@ -50,7 +50,8 @@ public class Main {
 				rtn.append(tokens[i];
 			}
 		}
-		return (String) rtn			  	
+		br.close();
+		return (String) rtn;			   
 	}	
 	private static int increaseHealth() {
 		return Animal.getHealth() + 5;
