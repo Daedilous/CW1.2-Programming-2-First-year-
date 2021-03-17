@@ -12,6 +12,7 @@ public class Main {
 
 	/**
 	 * @param args
+	 * Harrison: are CMD args used?
 	 */
 	public static void main(String[] args) {
 		int randomHealth = randomStat();
@@ -20,6 +21,8 @@ public class Main {
 		int randomMood = randomStat();
 		
 		Animal p = new Animal(randomFood, randomHealth, randomStamina, randomMood);
+		
+		// Harrison: TODO: wrap this
 		System.out.println( "Heath = " + Animal.getHealth());
 		System.out.println("Food = " + Animal.getFood());
 		System.out.println("Stamina = " + Animal.getStamina());
