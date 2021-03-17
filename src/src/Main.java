@@ -39,6 +39,19 @@ public class Main {
 		return stat;
 		
 	}
+	public static string Read_file(String path) {
+		String delim = ",";
+		BufferedReader br = Files.newBufferedReader(path);
+		StringBuilder rtn = new StringBuilder();
+		String current;
+		while ((current = br.readLine()) != null){
+			String[] tokens = current.split(delim);
+			for ( i = 0, i > tokens.length , i++){
+				rtn.append(tokens[i];
+			}
+		}
+		return (String) rtn			  	
+	}	
 	private static int increaseHealth() {
 		return Animal.getHealth() + 5;
 	}
