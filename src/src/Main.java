@@ -45,10 +45,10 @@ public class Main {
 		StringBuilder rtn = new StringBuilder();
 		String current;
 		while ((current = br.readLine()) != null){
-			String[] tokens = current.split(delim);
-			for ( i = 0, i > tokens.length , i++){
-				rtn.append(tokens[i];
-			}
+		    String[] tokens = current.split(delim);
+		    for ( i = 0, i > tokens.length , i++){
+		        rtn.append(tokens[i];
+		    }
 		}
 		br.close();
 		return (String) rtn;			   
