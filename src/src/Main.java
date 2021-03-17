@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
  * @author Lahiru Rajamanthri
- *	
+ *
  */
 public class Main {
 
@@ -25,15 +25,18 @@ public class Main {
 		reader.close();
 		
 		Animal p = new Animal(name, randomFood, randomHealth, randomStamina, randomMood);
-		System.out.println( "Animal name = " + Animal.getName());
-		System.out.println( "Heath = " + Animal.getHealth());
-		System.out.println("Food = " + Animal.getFood());
-		System.out.println("Stamina = " + Animal.getStamina());
-		System.out.println("Mood = " + Animal.getMood());
-		System.out.println("animal is being fed");
-		p.setFood(increaseFood());
-		System.out.println("animal fed = " + Animal.getFood());
-		System.out.println("Health increased by + 5 = " + increaseHealth());
+		System.out.println( "Animal name = " + p.getName());
+		System.out.println( "Heath = " + p.getHealth());
+		System.out.println("Food = " + p.getFood());
+		System.out.println("Stamina = " + p.getStamina());
+		System.out.println("Mood = " + p.getMood());
+
+		
+		System.out.println("Health increased by + 5 = " + increaseHealth(p));
+		System.out.println("Food increased by + 5 = " + increaseFood(p));
+		System.out.println("Stamina increased by + 5 = " + increaseStamina(p));
+		System.out.println("Mood increased by + 5 = " + increaseMood(p));
+		
 	}
 	private static int randomStat() {
 		Random rand = new Random();
@@ -42,18 +45,20 @@ public class Main {
 		return stat;
 		
 	}
-	private static int increaseHealth() {
-		return Animal.getHealth() + 5;
+	private static int increaseHealth(Animal p) {
+		
+		return p.getHealth() + 5;
 	}
-	private static int increaseFood() {
-		return Animal.getFood() + 5;
+	private static int increaseFood(Animal p) {
+		return p.getFood() + 5;
 	}
-	private static int increaseStamina() {
-		return Animal.getStamina() + 5;
+	private static int increaseStamina(Animal p) {
+		return p.getStamina() + 5;
 	}
-	private static int increaseMood() {
-		return Animal.getMood() + 5;
+	private static int increaseMood(Animal p) {
+		return p.getMood() + 5;
 	}
 	
 
 }
+
