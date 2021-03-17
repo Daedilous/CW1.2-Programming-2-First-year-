@@ -1,18 +1,17 @@
 import java.util.Random;
-
+import java.util.Scanner;
 /**
  * 
  */
 
 /**
  * @author Lahiru Rajamanthri
- *
+ *	
  */
 public class Main {
 
 	/**
 	 * @param args
-	 * Harrison: are CMD args used?
 	 */
 	public static void main(String[] args) {
 		int randomHealth = randomStat();
@@ -20,9 +19,13 @@ public class Main {
 		int randomStamina = randomStat();
 		int randomMood = randomStat();
 		
-		Animal p = new Animal(randomFood, randomHealth, randomStamina, randomMood);
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Enter pet name:");
+		String name = reader.nextLine();
+		reader.close();
 		
-		// Harrison: TODO: wrap this
+		Animal p = new Animal(name, randomFood, randomHealth, randomStamina, randomMood);
+		System.out.println( "Animal name = " + Animal.getName());
 		System.out.println( "Heath = " + Animal.getHealth());
 		System.out.println("Food = " + Animal.getFood());
 		System.out.println("Stamina = " + Animal.getStamina());
@@ -39,20 +42,6 @@ public class Main {
 		return stat;
 		
 	}
-	public static string Read_file(String path) {
-		String delim = ",";
-		BufferedReader br = Files.newBufferedReader(path);
-		StringBuilder rtn = new StringBuilder();
-		String current;
-		while ((current = br.readLine()) != null){
-		    String[] tokens = current.split(delim);
-		    for ( i = 0, i > tokens.length , i++){
-		        rtn.append(tokens[i];
-		    }
-		}
-		br.close();
-		return (String) rtn;			   
-	}	
 	private static int increaseHealth() {
 		return Animal.getHealth() + 5;
 	}
