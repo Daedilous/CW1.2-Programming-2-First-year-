@@ -10,33 +10,32 @@
  */
 public class Animal {
 	
-	private static int health = 0;
-	private static int food = 0;
-	private static int stamina = 0;
-	private static int mood = 0;
-	private static String name = "";
+	private int health = 0;
+	private int food = 0;
+	private int stamina = 0;
+	private int mood = 0;
+	private String name = "";
 	
 	public Animal(String name, int food, int health, int stamina, int mood) {
-		Animal.name = name;
-		Animal.health = health;
-		Animal.food = food;
-		Animal.stamina = stamina;
-		Animal.mood = mood;
+		this.name = name;
+		this.health = health;
+		this.food = food;
+		this.stamina = stamina;
+		this.mood = mood;
 	}
 	
 	// animal getters
-	public static String getName() {return name;}
-	public static int getHealth() {return health;}
-	public static int getFood() {return food;}
-	public static int getStamina() {return stamina;}
-	public static int getMood() {return mood;}
+	public String getName() {return this.name;}
+	public int getHealth() {return this.health;}
+	public int getFood() {return this.food;}
+	public int getStamina() {return this.stamina;}
+	public int getMood() {return this.mood;}
 	
 	// animal setters
-	public void setName(String n) {name = n;}
-	public void setHealth(int  h) {health = h;}
-	public void setFood(int  f) {food = f;}
-	public void setStamina(int  s) {stamina = s;}
-	public void setMood(int  m) {mood = m;}
+	public void setName(String n) {this.name = n;}
+	public void setHealth(int  h) {this.health = h;}
+	public void setFood(int  f) {this.food = f;}
+	public void setStamina(int  s) {this.stamina = s;}
+	public void setMood(int  m) {this.mood = m;}
 
-}
 }
