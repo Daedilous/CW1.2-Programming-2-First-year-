@@ -50,7 +50,7 @@ public class Process_Controller {
 				Process_Model.showVisuals(p);
 				Process_Model.showAlerts(p);
 				Process_Model.moodChange(p);
-				theView.switchPanels(theView.renamePnl);
+				theView.switchPanels(theView.GamePnl);
 			}
 			else {
 				System.out.println("lel");
@@ -120,7 +120,7 @@ public class Process_Controller {
 				Process_Model.foodDraining(p);
 				Process_Model.statsTimer(p);
 				Process_Model.showVisuals(p);
-				theView.switchPanels(theView.renamePnl);
+				theView.switchPanels(theView.GamePnl);
 			}
 
 		}

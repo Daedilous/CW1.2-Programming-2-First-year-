@@ -141,7 +141,7 @@ public class Process_Model {
 		}
 		return null;
 	}
-	// creates labels so the user is aware. these are retrieved from class animal
+	// creates labels so the user is aware of pets wellbeing. the stats are retrieved from class animal
 	public static void showStats(Animal p) {
 		if(p.getHealth() > 100) {
 			p.setHealth(100);
@@ -245,8 +245,9 @@ public class Process_Model {
 		    	}
 		 	};t.schedule(tt, 0, 10000);
 	}
+	// this is just sleeping 
 	public static void showSleeping() {
-	
+	// needs a timer added otherwise it sleeps forever
 			Process_View.lblImage.setIcon(new ImageIcon("Sleeping.gif"));
 			Process_View.btnFeed.setEnabled(false);
 			Process_View.btnPlay.setEnabled(false);
