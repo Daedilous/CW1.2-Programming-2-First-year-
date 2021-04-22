@@ -1,3 +1,11 @@
+/** 
+	 * @author Lahiru Rajamanthri
+	 * @author Harrison Bell
+	 * @author Jade Sumner
+	 * @author Luke Reading
+	 * Process_View (class), creates GUI instance and holds methods for GUI related user interactions
+	 * 
+	 * */
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -6,180 +14,29 @@ import javax.swing.*;
 
 public class Process_View extends JFrame {
 	private JLayeredPane layeredPane;
-	private JPanel panel0, panel1, panel2, panel3;
-	private JLabel namelabel = new JLabel("Enter pet name: ");
-	private JTextField name = new JTextField(10);
-	private JButton confirmName = new JButton("Confirm");
-	private JTextField petName = new JTextField(10);
-	private JTextField txtfieldExistingName = new JTextField(10);
-	private JLabel lblNewLabel_2;
-	static JLabel healthLabel, foodLabel, staminaLabel, moodLabel;
-	private JLabel lblEnterExistingPet, lblWelcome, lblPet_Name, lblStats;
-	private JButton btnFeed, btnPlay, btnRest;
-	static JButton btnSleep;
-	private JButton btnNewPet;
-	private JButton btnWakeUp;
-	private JButton btnExistingPet;
-	
+	public JPanel startPnl, newPetpnl, GamePnl, returnPnl;
+	private JTextField txtName, txtPetName, txtfieldExistingName;
+	public static JLabel lblImage;
+	static JLabel healthLabel, foodLabel, staminaLabel, moodLabel, lblFoodBucket;
+	private JLabel lblEnterExistingPet, lblWelcome, lblPet_Name, lblStats, lblname;
+	public static JButton btnFeed, btnPlay, btnRest, btnSleep;
+	private JButton btnNewPet, btnWakeUp, btnExistingPet, btnConfirmName;
+	        
+	/**
+	 * builds the GUI frames and panels
+	 */
 	
 	
 	Process_View(){
 		
-		
-		
-		
 		layeredPane = new JLayeredPane();
-		layeredPane.setBounds(10, 10, 300, 240);
+		layeredPane.setBounds(1, 1, 350, 400);
 		
-		//Panel 0 (Initial GUI menu)
-		
-		panel0 = new JPanel();
-		panel0.setBounds(10, 10, 330, 233);
-		layeredPane.add(panel0);
-		panel0.setLayout(null);
-		
-		
-		lblWelcome = new JLabel("Welcome To Game Name");
-		lblWelcome.setBounds(88, 60, 123, 21);
-		panel0.add(lblWelcome);
-		
-		btnNewPet = new JButton("Create new pet");
-		btnNewPet.setBounds(88, 180, 130, 20);
-		
-		btnNewPet.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				switchPanels(panel1);
-			}
-		});
-		panel0.add(btnNewPet);
-		
-		btnWakeUp = new JButton("Wake up pet");
-		btnWakeUp.setBounds(88, 210, 130, 20);
-		btnWakeUp.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				switchPanels(panel3);
-			}
-		});
-		panel0.add(btnWakeUp);
-		
-		//Panel 1 (Entering new pet name)
-		panel1 = new JPanel();
-		panel1.setBounds(10, 10, 330, 233);
-		panel1.setLayout(null);
-		panel1.setVisible(false);
-		
-		namelabel.setBounds(10, 14, 123, 21);
-		panel1.add(namelabel);
-		
-		name.setBounds(128, 12, 96, 19);
-		panel1.add(name);
-		name.setColumns(10);
-		
-		confirmName.setBounds(234, 11, 85, 21);
-		confirmName.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				switchPanels(panel2);
-			}
-		});
-		panel1.add(confirmName);
-		
-		
-		layeredPane.add(panel1);
-		
-		
-		//Panel 2 (Displaying pet and its stats)
-		panel2 = new JPanel();
-		panel2.setBounds(10, 10, 330, 233);
-		layeredPane.add(panel2);
-		panel2.setVisible(false);
-		
-		petName.setBounds(102, 29, 96, 19);
-		petName.setColumns(10);
-		panel2.add(petName);
-		
-		lblPet_Name = new JLabel("Pet Name:");
-		lblPet_Name.setBounds(34, 26, 88, 25);
-		panel2.add(lblPet_Name);
-		
-		panel2.setLayout(null);
-		lblStats = new JLabel("           Stats:");
-		lblStats.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblStats.setBounds(195, 68, 125, 25);
-		panel2.add(lblStats);
-		
-		healthLabel = new JLabel("health");
-		healthLabel.setBounds(213, 121, 88, 25);
-		panel2.add(healthLabel);
-		
-		foodLabel = new JLabel("food");
-		foodLabel.setBounds(213, 152, 88, 25);
-		panel2.add(foodLabel);
-		
-		staminaLabel = new JLabel("Stamina");
-		staminaLabel.setBounds(213, 186, 88, 25);
-		panel2.add(staminaLabel);
-		
-		moodLabel = new JLabel("Mood");
-		moodLabel.setBounds(213, 93, 88, 25);
-		panel2.add(moodLabel);
-		
-		lblNewLabel_2 = new JLabel("PET IMAGE");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_2.setBackground(Color.RED);
-		lblNewLabel_2.setBounds(102, 86, 110, 137);
-		panel2.add(lblNewLabel_2);
-		
-		btnFeed = new JButton("Feed");
-		btnFeed.setBounds(7, 97, 85, 21);
-		panel2.add(btnFeed);
-		
-		btnPlay = new JButton("Play");
-		btnPlay.setBounds(7, 128, 85, 21);
-		panel2.add(btnPlay);
-		
-		btnRest = new JButton("Rest");
-		btnRest.setBounds(7, 159, 85, 21);
-		panel2.add(btnRest);
-		
-		btnSleep = new JButton("Sleep");
-		btnSleep.setBounds(7, 190, 85, 21);
-		btnSleep.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				switchPanels(panel0);
-				
-				JOptionPane.showMessageDialog(null, "Your pet is in sleeping state" + "\nthe pet's current stats are saved");
-			}
-		});
-		panel2.add(btnSleep);
-		
-		//Panel 3 (Entering existing pet name)
-		panel3 = new JPanel();
-		panel3.setLayout(null);
-		panel3.setBounds(20, 10, 323, 243);
-		layeredPane.add(panel3);
-		panel3.setVisible(false);
-		
-		btnExistingPet = new JButton("Confirm");
-		btnExistingPet.setBounds(80, 210, 130, 20);
-		btnExistingPet.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				switchPanels(panel2);
-			}
-		});
-		panel3.add(btnExistingPet);
-		
-		
-		txtfieldExistingName.setBounds(80, 180, 130, 20);
-		panel3.add(txtfieldExistingName);
-		
-		lblEnterExistingPet = new JLabel("Enter existing pet name");
-		lblEnterExistingPet.setBounds(88, 60, 123, 21);
-		panel3.add(lblEnterExistingPet);
-		
-		
-		
-		
-		
+		//functions to create different object of panel.
+		startpnl();
+		newPetPnl();
+		gamepnl();
+		returnpnl();
 		
 		
 		
@@ -191,47 +48,215 @@ public class Process_View extends JFrame {
 		
 		
 	}
+	private void startpnl() {
+		//Panel 0 (Initial GUI menu)
+
+				startPnl = new JPanel();
+				startPnl.setBounds(10, 10, 350, 400);
+				layeredPane.add(startPnl);
+				startPnl.setLayout(null);
+				
+				
+				lblWelcome = new JLabel("Welcome To Game Name");
+				lblWelcome.setBounds(88, 60, 123, 21);
+				startPnl.add(lblWelcome);
+				
+				btnNewPet = new JButton("Create new pet");
+				btnNewPet.setBounds(88, 180, 130, 20);
+				
+				btnNewPet.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						switchPanels(newPetpnl);
+					}
+				});
+				startPnl.add(btnNewPet);
+				
+				btnWakeUp = new JButton("Wake up pet");
+				btnWakeUp.setBounds(88, 210, 130, 20);
+				btnWakeUp.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						switchPanels(returnPnl);
+					}
+				});
+				startPnl.add(btnWakeUp);
+	}
+	
+	private void newPetPnl() {
+		//Panel for new pets (Entering new pet name)
+
+				newPetpnl = new JPanel();
+				newPetpnl.setBounds(10, 10, 350, 400);
+				newPetpnl.setLayout(null);
+				newPetpnl.setVisible(false);
+				
+				lblname = new JLabel("Enter pet name: ");
+				lblname.setBounds(10, 14, 123, 21);
+				newPetpnl.add(lblname);
+				
+				txtName = new JTextField(10);
+				txtName.setBounds(128, 12, 96, 19);
+				newPetpnl.add(txtName);
+				txtName.setColumns(10);
+				
+				btnConfirmName = new JButton("Confirm");
+				btnConfirmName.setBounds(234, 11, 85, 21);
+				newPetpnl.add(btnConfirmName);
+				layeredPane.add(newPetpnl);
+				
+		
+	}
+	
+	private void gamepnl() {
+		//Panel (Displaying pet and its stats)
+				GamePnl = new JPanel();
+				GamePnl.setBounds(0, 0, 350, 400);
+				GamePnl.setBackground(Color.white);
+				layeredPane.add(GamePnl);
+				GamePnl.setVisible(false);
+				
+				txtPetName = new JTextField(10);
+				txtPetName.setBounds(102, 29, 96, 19);
+				txtPetName.setColumns(10);
+				GamePnl.add(txtPetName);
+				
+				lblPet_Name = new JLabel("Pet Name:");
+				lblPet_Name.setBounds(34, 26, 88, 25);
+				GamePnl.add(lblPet_Name);
+				
+				GamePnl.setLayout(null);
+				lblStats = new JLabel("           Stats:");
+				lblStats.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				lblStats.setBounds(195, 68, 125, 25);
+				GamePnl.add(lblStats);
+				
+				healthLabel = new JLabel("health");
+				healthLabel.setBounds(213, 121, 88, 25);
+				GamePnl.add(healthLabel);
+				
+				foodLabel = new JLabel("food");
+				foodLabel.setBounds(213, 152, 88, 25);
+				GamePnl.add(foodLabel);
+				
+				staminaLabel = new JLabel("Stamina");
+				staminaLabel.setBounds(213, 186, 88, 25);
+				GamePnl.add(staminaLabel);
+				
+				moodLabel = new JLabel("Mood");
+				moodLabel.setBounds(213, 93, 88, 25);
+				GamePnl.add(moodLabel);
+				
+				lblFoodBucket = new JLabel("Food bucket");
+				lblFoodBucket.setBounds(112, 64, 110, 25);
+				GamePnl.add(lblFoodBucket);
+				
+				lblImage = new JLabel("PET IMAGE");
+				lblImage.setIcon(new ImageIcon("SleepingV4.gif"));
+				lblImage.setBounds(102, 86, 110, 140);
+				GamePnl.add(lblImage);
+				
+				
+				btnFeed = new JButton("Feed");
+				btnFeed.setBounds(7, 97, 85, 21);
+				GamePnl.add(btnFeed);
+				
+				btnPlay = new JButton("Play");
+				btnPlay.setBounds(7, 128, 85, 21);
+				GamePnl.add(btnPlay);
+				
+				btnRest = new JButton("Rest");
+				btnRest.setBounds(7, 159, 85, 21);
+				GamePnl.add(btnRest);
+				
+				btnSleep = new JButton("Sleep");
+				btnSleep.setBounds(7, 190, 85, 21);
+				btnSleep.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						switchPanels(startPnl);
+						
+						JOptionPane.showMessageDialog(null, "Your pet is in sleeping state" + "\nthe pet's current stats are saved");
+					}
+				});
+				GamePnl.add(btnSleep);
+				
+				JButton btnActivityLogs = new JButton("Activity Logs");
+				btnActivityLogs.setBounds(100, 230, 110, 21);
+				GamePnl.add(btnActivityLogs);
+		
+	}
+	
+	private void returnpnl() {
+		//Panel 3 (Entering existing pet name)
+				returnPnl = new JPanel();
+				returnPnl.setLayout(null);
+				returnPnl.setBounds(20, 10, 323, 243);
+				layeredPane.add(returnPnl);
+				returnPnl.setVisible(false);
+				
+				btnExistingPet = new JButton("Confirm");
+				btnExistingPet.setBounds(80, 210, 130, 20);
+				returnPnl.add(btnExistingPet);
+				
+				txtfieldExistingName = new JTextField(10);
+				txtfieldExistingName.setBounds(80, 180, 130, 20);
+				returnPnl.add(txtfieldExistingName);
+				
+				lblEnterExistingPet = new JLabel("Enter existing pet name");
+				lblEnterExistingPet.setBounds(88, 60, 123, 21);
+				returnPnl.add(lblEnterExistingPet);
+		
+	}
 	
 	public String getName() {
 		
-		return name.getText();
+		return txtName.getText();
 	}
+	
 	public String getPetName() {
-		return petName.getText();
+		return txtPetName.getText();
 	}
+	
 	public void setPetName(String name) {
-		petName.setText(name);
+		txtPetName.setText(name);
 	}
+	
 	public String getExistingPetName() {
 		return txtfieldExistingName.getText();
 	}
-	public void setExistingPetName(String name) {
-		petName.setText(name);
-	}
 	
 	void initialStats(ActionListener listenForConfirmName) {
-		confirmName.addActionListener(listenForConfirmName);
+		btnConfirmName.addActionListener(listenForConfirmName);
 	}
+	
 	
 	void addFoodListener(ActionListener listenForAddFood) {
 		btnFeed.addActionListener(listenForAddFood);
 	}
+	
 	void addSleepListener(ActionListener listenForSleep) {
 		btnSleep.addActionListener(listenForSleep);
 	}
+	
+	void addRestListener(ActionListener listenForRest) {
+		btnRest.addActionListener(listenForRest);
+	}
+	
 	void addExistingPetListener(ActionListener listenForExistingPet) {
 		btnExistingPet.addActionListener(listenForExistingPet);
 	}
 	
+	
 	void displayErrorMessage(String errorMessage) {
 		JOptionPane.showMessageDialog(this, errorMessage);
 	}
+	//removes and adds a new panel
+	
 	public void switchPanels(JPanel panel)
-	{
+	{  
 		layeredPane.removeAll();
 		layeredPane.add(panel);
 		layeredPane.repaint();
 		layeredPane.revalidate();
 		panel.setVisible(true);
+		
 	}
 }
